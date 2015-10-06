@@ -1,0 +1,48 @@
+.testImg {
+	margin-left: 5px;
+
+}
+
+.deer {
+	background: url("images/deer.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+}
+.fire {
+	background: url("images/fire.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.dog {
+	background: url("images/ski.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+
+
+}
+#blogText {
+	color: darkred;
+	text-align: right;
+
+
+}
+
+ .navbar li a  {
+	border: 4px;
+	color: darkblue;
+	box-shadow: 2px 3px 2px #777;
+   	border-radius: 75px;
+   	background: linear-gradient(lightgreen, lightblue);
+   	padding: 15px;
+   	margin: 15px;	
+}
+
+.click {
+	box-shadow: 10px 10px 5px #888888;
+
+
+
+}
+
+
