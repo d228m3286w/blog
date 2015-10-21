@@ -1,0 +1,21 @@
+{
+  "name": "your-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.11",
+    "axios": "^0.5.4",
+    "dotenv": "^1.2.0",
+    "lodash": "^3.10.1",
+    "twit": "^2.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

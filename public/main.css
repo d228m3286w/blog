@@ -1,0 +1,191 @@
+
+/*//////////////////////////////////////ALL PAGES/////////////////////////////*/
+* {
+  cursor: url("images/pointer2.png"), auto;
+}
+
+.testImg {
+	margin-left: 5px;
+
+}
+#homelink {
+  /*border: 2px;*/
+  color: darkred;
+  border-radius: 90px;
+  background: linear-gradient(darkblue, black);
+  padding: 15px;
+  margin: 15px;
+  font-size: .5em;
+}
+
+/*.navbar #homelink:hover {
+  font-size: 1.3em;
+}
+*/#homelink:hover {
+  font-size: 1.3em;
+}  
+
+@media (max-width: 768px) {
+  .navbar li a { 
+  	text-align: center;
+  	}
+}
+
+.dog {
+	background: url("images/fire.png");
+	background-repeat: no-repeat;
+  /*position: fixed;*/
+  background-size: cover;
+  height: 300px;
+}
+#blogText {
+  text-align: center;
+  text-shadow: 1px 1px #FF0000;
+  color: #8B0000;
+  color: black;
+}
+#blogText:hover{
+  font-family: 'Flavors', cursive;
+  font-size: 6em;
+
+}
+/*//////////////////////////////////////////INDEX PAGE///////////////////////*/
+
+
+#container{
+	height: 100%;
+
+}
+
+#footer {
+	padding:300px 0 10px 300px;
+	
+}
+#footer a  {
+	text-align: center;
+	color: darkred;
+
+}
+
+#footer div {
+	box-shadow: inset 0 0 5px #191970;
+	padding: 10px;
+  margin: 30px;
+  background-color: #4682B4;
+  opacity: 0.6;
+  font-family: 'Chewy', cursive;
+  font-size: 1.2em;	
+}
+
+
+
+.idx-img {
+  width: 100%;
+  background-image: linear-gradient(
+  	rgba(205, 181, 205, 0.5),
+    rgba(205, 181, 205, 0.5)
+  	), url("images/background.png");  
+  background-size: cover;
+  position: absolute;
+  /*background-attachment: scroll;*/
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+   
+  }
+
+/*  ////////////////////////Blog Page////////////////////////////////*/
+
+
+ 
+  
+
+.sidebar-outer {
+    position: fixed;
+    background-color: transparent;
+
+    
+
+}
+
+
+#blog-list {
+    
+    padding: 25px;
+    background-color: rgba(139, 131, 120, .0);
+    color: black; 
+    font-size: 1.2em;
+    margin-bottom: 30px;
+       	     
+} 
+#blog-list article {
+  background-color: rgba(139, 131, 120, .8);
+  box-shadow: 7px 10px 7px #333;
+  padding: 15px;
+  
+
+}
+
+#blog-list h4 {
+  margin-top: 30px;
+  text-align: center;
+  border-top: solid 2px darkgreen;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: normal;
+  font-size: 1.6em;
+  text-shadow: 1px 1px green;
+
+}
+
+
+.bg-img {
+ 
+  background-image: radial-gradient(
+  	rgba(074, 112, 200, 0.1),
+    rgba(074, 112, 139, 0.1)
+  	), url("images/Mount2.png");  
+  background-size: cover;
+  position: absolute;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+
+}
+   
+ 
+/*///////////////////////////////////POST PAGE/////////////////////////////////////*/
+
+#backForm{
+  background-image: linear-gradient(
+    rgba(074, 112, 200, 0.6),
+    rgba(255, 0, 0, 0.7)
+    );
+  background-size: 100%;
+  height: 800px;
+  background-repeat: no-repeat;
+  
+}
+
+#form {
+  background: lightblue;
+  box-shadow: 5px 10px 5px #444;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+
+
+#downer {
+  margin-top: 50px;
+  box-shadow: 5px 5px 5px #000;
+
+}
+#upper { 
+  box-shadow: 5px 5px 5px #000;
+  margin-top: 50px;
+
+}
+
+
