@@ -14,7 +14,8 @@
     "axios": "^0.5.4",
     "dotenv": "^1.2.0",
     "lodash": "^3.10.1",
-    "twit": "^2.1.0"
+    "twit": "^2.1.0",
+    "mongodb-uri": "^0.9.7"
   },
   "author": "",
   "license": "ISC"
