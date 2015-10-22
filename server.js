@@ -5,6 +5,13 @@ var fs = require('fs');
 var mongoose   = require('mongoose');
 var db = require('./models/db');
 var Blog = require('./models/blog');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
+
 
 // var router = express.Router();
 
@@ -104,6 +111,23 @@ app.get('/', function(req, res){
 })
 
 app.set('port', process.env.PORT || 4000);
+
+
+////////////////Require for Passport//////////////////////
+
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+ // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); 
+
+require('./routes/userRoutes')(app, passport);
+
+
+
 
 var server = app.listen(app.get('port'), function(){ 
   console.log('Express server listening on port ' + server.address().port)
