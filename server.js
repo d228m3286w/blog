@@ -11,15 +11,7 @@ var Blog = require('./models/blog');
 
 var blogRoutes = require('./routes/blog');
 
-// app.use(express.static('public'));
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// // app.use('/api/blogs')
-
-// app.get('/', function(req, res){
-//     res.readFile('index.html')
-// });
 
 require('dotenv').load();
 var express = require('express');
