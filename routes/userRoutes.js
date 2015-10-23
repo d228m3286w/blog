@@ -9,6 +9,12 @@ module.exports = function(app, passport) {
             user : req.user
         });
     });
+//POST PAGE ================================
+      app.get('/post_blog', isLoggedIn, function(req, res) {
+        res.render('post_blog.ejs', {
+            user : req.user
+        });
+    });
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
