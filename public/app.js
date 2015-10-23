@@ -49,7 +49,7 @@ var BlogBox = React.createClass({
 
 
 	loadTweetsFromServer: function() {
-		// var handle="hajush"
+		
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',

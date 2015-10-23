@@ -13,11 +13,13 @@ router.route('/')
         entries.title = req.body.title;
         entries.body = req.body.body;  
 
-        entries.save(function(err) {
-            if (err)
-                res.send(err);
-              res.redirect("/blog.html")
-            // res.json({ message: 'Blog created!' });
+        entries.save(function(err, blog) {
+            if (err){
+                res.send(err); 
+            } else { 
+              res.send(blog);
+             
+        }
         });
         
     })

@@ -1,77 +1,59 @@
 
 
-var TwitterList = React.createClass({
 
-    render: function() {
+var BlogForm = React.createClass({
 
-    	var tweetdata = this.props.data.map(function(tweet){
-    		console.log("tweet")
-    		return (
-    				<div>
-    					<h4> {tweet} </h4>
-    					
-    				</div>
-    			)
+	handleSubmit: function(e) {
 
-    	});
-        return (
-				<div>
-					<h1>Twitter</h1>
-						<ul>
-							{tweetdata}
-						</ul>
-				</div>
-        	);
-    }
-});
+		e.preventDefault();
 
+			var title = React.findDOMNode(this.refs.title).value.trim();
+			var body = React.findDOMNode(this.refs.body).value.trim();
+			
 
+			if(!title){
+				return;
+			}
+			var data = ({title: title, body: body});
 
-
-
-var TwitterFeed = React.createClass({
-
-		getInitialState: function(){
-			return {data: []}
+			$.ajax({
+				url: this.props.url,
+				dataType: 'json',
+				data: data,
+				type: 'POST',
+					success:function(response){
+					console.log("Posting data", data, response)
+					document.location='/blog.html'
+					}.bind(this),
+					error: function(xhr,status, err){
+						console.log("NOT POSTING DATA")
+						console.log(data)
+						console.error(this.props.url, status, err.toString());
+					}.bind(this)
+			})
 		},
-
-
-
-	loadTweetsFromServer: function() {
-		var handle="d228m3286w"
-		$.ajax({
-			url: this.props.url + handle,
-			dataType: 'json',
-			cache:false,
-			success:function(data){
-				console.log("inside success" + JSON.stringify(data[0]))
-				this.setState({data:data});
-			}.bind(this),
-			error: function(xhr,status, err){
-				console.log("broken url is " + this.props.url)
-				console.error(this.props.url, status,err.toString());
-			}.bind(this)
-		});
-	},
-
-	
-componentDidMount: function() {
-	this.loadTweetsFromServer();
-},
-
-
+		
     render: function() {
         return (
 				<div>
-					<ul>
-						<TwitterList data={this.state.data}/>
-					</ul>
+					<form method="POST">
+						<h1 id="formHead">POST YOUR BLOG FOO!!!</h1>
+    					
+						<input type="text" ref="title" className="form-control" id="upper" placeholder="Input field"/>
+						<textarea type="text" ref="body" className="form-control" id="downer" placeholder="Blog Entry"/>
+						<button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
+					</form>
 				</div>
         );
     }
 });
 
-React.render(<TwitterFeed url="/api/T/:twitterHandle"/>, document.getElementById('twitter-feed'));
+React.render(<BlogForm url="/api/blog/"/>, document.getElementById('BlogFoo'));
+
+
+
+
+
 
 
 
