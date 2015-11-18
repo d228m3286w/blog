@@ -3,44 +3,22 @@
 * {
   cursor: url("images/pointer2.png"), auto;
 }
+li {
+  list-style: none;
+}
+a {
+  color: black;
+}
 
 .testImg {
 	margin-left: 5px;
 
 }
-/*#homelink {
-  color: darkred;
-  border-radius: 90px;
-  background: linear-gradient(darkblue, black);
-  padding: 15px;
-  margin: 25px;
-  font-size: .5em;  
-}*/
 
- #navbar ul { 
-    margin: 5px; 
-    padding: 5px; 
-    border: 0;
-    list-style-type: none; 
-    background-color: transparent; 
-    } 
 
-#navbar ul li {  
-    display: inline; 
-    } 
-
-#navbar ul li a { 
-    text-decoration: none; 
-    padding: .2em 1em; 
-    color: darkred; 
-    background: linear-gradient(darkblue, black); 
-    } 
-
-#navbar ul li a:hover { 
-    color: #0EC6D7; 
-    background-color: #8B008B;
-    font-size: 1.3em; 
-    } 
+.bg-img {
+  margin-top: 50px;
+}
 
   
 
@@ -64,12 +42,33 @@
   color: #8B0000;
   color: black;
 }
-#blogText:hover{
-  font-family: 'Flavors', cursive;
-  font-size: 6em;
+
+/*//////////////////////////////////////////INDEX PAGE///////////////////////*/
+#myName {
+    color: white;
+    transform-style: preserve-3d;
+}
+
+.rotate-y {
+    animation: spinY 3s  linear;
+}
+
+@keyframes spinY {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(360deg); }    
+}
+#myOtherName {
+    color: white;
+    transform-style: preserve-3d;
+}
+.rotate-x {
+    animation: spinX 3s  linear;
+}
+@keyframes spinX {
+    from { transform: rotateX(0); }
+    to { transform: rotateX(360deg); }
 
 }
-/*//////////////////////////////////////////INDEX PAGE///////////////////////*/
 
 
 #container{
@@ -97,7 +96,12 @@
   font-size: 1.2em;	
 }
 
-
+.resume {
+  text-align: justify;
+}
+.middleOfPage {
+  height: 300px;
+}
 
 .idx-img {
   width: 100%;
@@ -110,25 +114,89 @@
   /*background-attachment: scroll;*/
   background-position: 0 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  
-   
+  background-attachment: fixed; 
   }
+.intent {
+  background-color: black;
+}
+.resume {
+  background: black;
+}
+.secondStripe {
+  background-color: black;
+  height: 100px;
+    
+}
+/* ============================================================
+  SPINNER CONTAINER
+============================================================ */
+
+[class*="cmn-spinner"] {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  color: rgba(0, 0, 0, 0);
+ 
+}
+.cmn-spinner__radar {
+  border-top: solid 2px #96ff96;
+  border-right: solid 2px transparent;
+  border-bottom: solid 2px transparent;
+  border-left: solid 2px transparent;
+  border-radius: 100%;
+  animation: cmn-spinner--animation__radar 1.5s infinite linear;
+}
+.cmn-spinner__radar::before, .cmn-spinner__radar::after {
+  display: block;
+  position: absolute;
+  border-right: solid 2px transparent;
+  border-bottom: solid 2px transparent;
+  border-left: solid 2px transparent;
+  border-radius: 100%;
+  content: "";
+}
+.cmn-spinner__radar::before {
+  top: 12px;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  border-top: solid 2px #dcff64;
+  animation: cmn-spinner--animation__radar 1.75s infinite linear;
+}
+.cmn-spinner__radar::after {
+  top: 26px;
+  right: 26px;
+  bottom: 26px;
+  left: 26px;
+  border-top: solid 2px #fff;
+  animation: cmn-spinner--animation__radar 2s infinite linear;
+}
+
+/* animation keyframes */
+@keyframes cmn-spinner--animation__radar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 /*  ////////////////////////Blog Page////////////////////////////////*/
 
-
- 
-  
-
-.sidebar-outer {
-    position: fixed;
-    background-color: transparent;
-
-    
-
+#navOnBlog {
+  margin-top: -50px;
 }
-
+#headingToBlog {
+  text-align: center;
+  color: darkred;
+}
+#headingToBlog:hover{
+  font-family: 'Flavors', cursive;
+  font-size: 3em;
+  text-shadow: 1px 1px black;
+}
 
 #blog-list {
     
@@ -160,7 +228,6 @@
 
 
 .bg-img {
- 
   background-image: radial-gradient(
   	rgba(074, 112, 200, 0.1),
     rgba(074, 112, 139, 0.1)
@@ -241,6 +308,8 @@
 
 
 }
+
+
 
 
 

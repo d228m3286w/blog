@@ -1,10 +1,3 @@
-// var mongoose     = require('mongoose');
-
-// var blogSchema   = new mongoose.Schema({
-//     title: String
-// });
-
-// mongoose.model('Blog', blogSchema);
 
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;

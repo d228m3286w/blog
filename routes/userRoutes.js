@@ -22,6 +22,13 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    app.get('/blog', function(req, res) {
+        res.render('blog.ejs', {
+            user : req.user
+        });
+    });
+
+
     // AUTHENTICATE (FIRST LOGIN) ==================================================
 
     // LOGIN ===============================
