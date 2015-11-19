@@ -7,7 +7,10 @@ module.exports = {
   blog: ['webpack-hot-middleware/client',
     './client/blog'],
   blogForm: ['webpack-hot-middleware/client',
-    './client/blogForm']
+    './client/blogForm'],
+  github: ['webpack-hot-middleware/client',
+    './client/index']
+
 },
   output: {
     path: path.join(__dirname, 'static'),

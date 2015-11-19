@@ -14,11 +14,14 @@ passport     = require('passport'),
 flash        = require('connect-flash'),
 session      = require('express-session'),
 morgan       = require('morgan'),
-cookieParser = require('cookie-parser');
+cookieParser = require('cookie-parser'),
+githubRoutes = require('./routes/github');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
@@ -55,11 +58,8 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 
 app.use('/api/blog/', blogRoutes);
+app.use('/api/github', githubRoutes);
 
-
-// app.get('/', function(req, res){
-//     res.sendFile('blog.html');
-// })
 
 require('./config/passport')(passport); // pass passport for configuration
 
