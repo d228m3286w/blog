@@ -7,7 +7,7 @@ var url = "https://api.github.com/users/d228m3286w/events";
 fetchGitHubEvents = function(req,res) {
 	axios.get(url)
   		.then(function (response) {
-  		var goodie = response.data.slice(0,3).map(function(g) {
+  		var goodie = response.data.slice(0,2).map(function(g) {
   			if(g.payload.commits){
   				var coms = g.payload.commits.map(function(c){
 				return { "message": c.message, 

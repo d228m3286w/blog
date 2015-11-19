@@ -15,12 +15,10 @@ flash        = require('connect-flash'),
 session      = require('express-session'),
 morgan       = require('morgan'),
 cookieParser = require('cookie-parser'),
-githubRoutes = require('./routes/github');
+githubRoutes = require('./routes/github'),
+Twit         = require('twit');
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-
+require('dotenv').load();
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -56,10 +54,47 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
+app.options("*", function(req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+});
+
+var T = new Twit({
+  consumer_key: process.env.CONSUMER_KEY, 
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.ACCESS_SECRET
+});
+
+var fetchTweets = function(req, res){
+  var twitterHandle = req.params.twitterHandle;
+
+  T.get('statuses/user_timeline', { screen_name: twitterHandle, count: 1 },
+    function(err, data, response) {
+
+      // var justTweets = [];
+
+      // data.forEach(function(obj){
+      //   justTweets.push(obj.text);
+      // });
+      res.send(data);
+    });
+}
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded());
 app.use('/api/blog/', blogRoutes);
 app.use('/api/github', githubRoutes);
-
+app.use('/api/T/:twitterHandle', fetchTweets);
 
 require('./config/passport')(passport); // pass passport for configuration
 

@@ -34,28 +34,27 @@ var Github = React.createClass({
 	    		var commitsInfo = c.coms.map(function(g){
 	    			return (
 	    				<div>
-	    					<li>{g.message}</li>
-	    					<li>{g.url}</li>
+	    					<li><a href={g.url}> {c.repo}</a></li>
+	    					<li>{g.message}</li>	    					
 	    				</div>
 	    			)
 
 	    		})
-    		}
-			return (
-				<div>
-					<li>{c.repo}</li>
-					<li>{commitsInfo}</li>
-					<li>{c.timeStamp}</li>
-				</div>
-			)
+	    		return(
+	    			{commitsInfo}
+	    			)
+	    		}
+		
     	});
 
         return (
 			<div>
-				{gitshit}	
+				{gitshit}
+				
 			</div>
         );
     }
 });
 
 module.exports = Github;
+
