@@ -9,7 +9,6 @@ var BlogForm = React.createClass({
 			var title = React.findDOMNode(this.refs.title).value.trim();
 			var body = React.findDOMNode(this.refs.body).value.trim();
 			
-
 			if(!title){
 				return;
 			}

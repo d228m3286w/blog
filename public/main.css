@@ -225,8 +225,20 @@ a {
   text-shadow: 1px 1px green;
 
 }
+#peepsComments {
+  border: dashed 1px;
 
-
+}
+#commentButton {
+  margin-top: 5px;
+  margin-left: 45%;
+}
+#commentField {
+  background-color: white;
+  opacity: 0.5;
+  color: black;
+  font-size: 1.5em;
+}
 .bg-img {
   background-image: radial-gradient(
   	rgba(074, 112, 200, 0.1),

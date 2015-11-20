@@ -4,6 +4,9 @@ var mongoose   = require('mongoose');
 var app = express();
 var router = express.Router();
 var Blog = mongoose.model("Blog");
+
+router.use(bodyParser.urlencoded({ extended: true }));
+
 router.route('/')
    
 .post(function(req, res) {
@@ -26,12 +29,12 @@ router.route('/')
 
 .get(function(req, res) {
   
-   	mongoose.model('Blog').find({}, function(err, blog){
+   	mongoose.model('Blog').find({})
+    .populate('comments')
+    .exec(function(err, blog){
      if(err){
        return console.log(err);
      } else {
-       // var arrByTitle = blog.filter(filterByTitle);
-       // res.json(arrByTitle);
        res.json(blog)
      }
    });
@@ -83,4 +86,40 @@ router.route('/')
        });
    });
 
-   module.exports = router;
+router.route('/:id/comment')
+ .post(function(req,res){
+
+   mongoose.model('Comment').create({
+     body: req.body.body,
+     user: req.user
+
+   }, function(err, comment){
+     if(err)
+       res.send(err)
+
+     mongoose.model('Blog').findById({
+       _id: req.params.id
+
+     }, function(err, blog){
+      console.log(err, blog);
+       if(err)
+         res.send(err)
+       blog.comments.push(comment._id);
+       blog.save();
+       res.send(comment);
+     })
+   })
+ })
+
+router.route('/:id/comments')
+  .get(function(req, res){
+    mongoose.model('Blog').findById({_id: req.params.id})
+    .populate('comments').exec(function(err, comments){
+      if(err)
+        res.send(err)
+      res.send(comments)
+    })
+  })
+
+
+module.exports = router;

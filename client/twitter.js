@@ -8,10 +8,9 @@ var TweetList = React.createClass({
     	})
         return (
 				<div>
-					<h4>Recent Tweets</h4>
-						<ul>
+				
 							{tweetdata}
-					</ul>
+
 				</div>
         );
     }

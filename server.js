@@ -16,7 +16,8 @@ session      = require('express-session'),
 morgan       = require('morgan'),
 cookieParser = require('cookie-parser'),
 githubRoutes = require('./routes/github'),
-Twit         = require('twit');
+Twit         = require('twit'),
+commentModel = require('./models/comment');
 
 require('dotenv').load();
 
