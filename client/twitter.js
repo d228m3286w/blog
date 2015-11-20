@@ -8,9 +8,7 @@ var TweetList = React.createClass({
     	})
         return (
 				<div>
-				
-							{tweetdata}
-
+					{tweetdata}
 				</div>
         );
     }
