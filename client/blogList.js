@@ -4,7 +4,14 @@ var prettydate = require("pretty-date");
 
 var BlogList = React.createClass({
     render: function() {
-    	var blogdata = this.props.data.map(function(blogs){
+    	
+        var blogSort = this.props.data.sort(function(a, b){
+          var x = a.date, y = b.date;
+          return x < y ? -1 : x > y ? 1 : 0;
+          });
+
+       var blogData = blogSort.reverse().map(function(blogs){
+            
             if(blogs.comments) {
                 var blogComments = blogs.comments.map(function(i){
                     var newDate = prettydate.format(new Date(i.date))
@@ -30,7 +37,7 @@ var BlogList = React.createClass({
 				<div>
 					<h1 id="headingToBlog">Blogs</h1>
 						<ul>
-							{blogdata}
+							{blogData}
 						</ul>
 				</div>
         	);

@@ -95,24 +95,28 @@ a {
   font-family: 'Chewy', cursive;
   font-size: 1.2em;	
 }
+
 #portfolio {
   border: solid;
   box-shadow: inset 0 0 5px #191970;
    
 
 }
+
 .education {
   border: solid;
   box-shadow: inset 0 0 5px #191990;
 
 }
 .resume {
-  text-align: justify;
+  border: solid;
+  box-shadow: inset 0 0 5px #191990;
+  color: transparent;
 }
 .middleOfPage {
   height: 300px;
 }
-.middleOfPage h2 {
+ h2 {
   color: brown;
   text-align: center;
 }
@@ -132,15 +136,24 @@ a {
 
   }
 .intent {
-  background-color: black;
+  border: solid;
+  box-shadow: inset 0 0 5px #191990;
+  color: transparent;
 }
-.resume {
-  background: black;
-}
+
 .secondStripe {
   background-color: black;
-  height: 110px;
-    
+}
+.secondStripe:before {
+  
+  height: 110px;    
+}
+.secondStripe:after {
+   -moz-transition: height 1.5s ease;
+    -webkit-transition: height 1.5s ease;
+    -o-transition: height 1.5s ease;
+    transition: height 1.5s ease;
+    height: 5px;
 }
 /* ============================================================
   SPINNER CONTAINER
@@ -160,8 +173,8 @@ a {
   border-bottom: solid 2px transparent;
   border-left: solid 2px transparent;
   border-radius: 100%;
-  animation: cmn-spinner--animation__radar 2s  linear;
-  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
+  animation: cmn-spinner--animation__radar 1s  linear;
+  -webkit-animation: cssAnimation 1s ease-in 1s forwards;
 }
 .cmn-spinner__radar::before, .cmn-spinner__radar::after {
   display: block;
@@ -178,8 +191,9 @@ a {
   bottom: 12px;
   left: 12px;
   border-top: solid 2px #dcff64;
-  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
-  animation: cmn-spinner--animation__radar 2s  linear;
+  -webkit-animation: cssAnimation 1s ease-in 1s forwards;
+  animation: cmn-spinner--animation__radar 1s  linear;
+
 }
 .cmn-spinner__radar::after {
   top: 26px;
@@ -187,8 +201,8 @@ a {
   bottom: 26px;
   left: 26px;
   border-top: solid 2px #fff;
-  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
-  animation: cmn-spinner--animation__radar 2s linear;
+  -webkit-animation: cssAnimation 1s ease-in 1s forwards;
+  animation: cmn-spinner--animation__radar 1s linear;
 
 }
 
@@ -267,11 +281,9 @@ a {
   font-weight: normal;
   font-size: 1.6em;
   text-shadow: 1px 1px green;
-
 }
 #peepsComments {
   border: dashed 1px;
-
 }
 #commentButton {
   margin-top: 5px;
@@ -334,10 +346,8 @@ a {
     );
   background-size: 100%;
   height: 800px;
-  background-repeat: no-repeat;
-  
+  background-repeat: no-repeat;  
 }
-
 #form {
   background: lightblue;
   box-shadow: 5px 10px 5px #444;
@@ -345,13 +355,10 @@ a {
   text-decoration: underline;
   margin-bottom: 20px;
 }
-
-
 #downer {
   margin-top: 50px;
   box-shadow: 5px 5px 5px #000;
   margin-bottom: 15px;
-
 }
 #upper { 
   box-shadow: 5px 5px 5px #000;
@@ -361,10 +368,22 @@ a {
 #formHead {
   text-shadow: 1px 1px #FF0000;
   color: #8B0000;
-
-
 }
+@media (max-width: 990px) {
+  .secondStripe { display: none;}
+}
+@media (max-width: 770px) {
 
+  #portfolio { text-align: center;}
+  #footer {display: none;}
+  .middleOfPage { height: 500px; }
+  
+  .education { margin-bottom: 50px;
+               text-align: center;}
+  #myName { animation: none;
+            margin-left: 10px; }
+  #myOtherName { animation: none; }
+}
 
 
 
