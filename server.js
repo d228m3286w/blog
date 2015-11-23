@@ -17,8 +17,8 @@ morgan       = require('morgan'),
 cookieParser = require('cookie-parser'),
 githubRoutes = require('./routes/github'),
 Twit         = require('twit'),
-commentModel = require('./models/comment');
-
+commentModel = require('./models/comment'),
+prettydate   = require("pretty-date");
 require('dotenv').load();
 
 

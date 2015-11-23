@@ -12,7 +12,7 @@
     "lint": "eslint client server || true",
     "deploy": "npm run build && modulus deploy --project-name stripe-demo"
   },
-    "author": "",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.5.4",
@@ -21,7 +21,7 @@
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.0",
     "dotenv": "^1.2.0",
-    "ejs": "^2.3.3",   
+    "ejs": "^2.3.3",
     "express": "^4.13.3",
     "express-session": "^1.11.3",
     "lodash": "^3.10.1",
@@ -31,13 +31,12 @@
     "morgan": "^1.6.1",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
-    "react": "^0.13.0",    
+    "pretty-date": "^0.2.0",
+    "react": "^0.13.0",
     "stripe": "^4.0.0",
     "superagent": "^1.4.0",
     "twit": "^2.1.0",
     "webpack": "^1.9.6"
-    
-
   },
   "engines": {
     "node": "4.1.0"

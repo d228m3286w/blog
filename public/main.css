@@ -160,7 +160,8 @@ a {
   border-bottom: solid 2px transparent;
   border-left: solid 2px transparent;
   border-radius: 100%;
-  animation: cmn-spinner--animation__radar 1.5s infinite linear;
+  animation: cmn-spinner--animation__radar 2s  linear;
+  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
 }
 .cmn-spinner__radar::before, .cmn-spinner__radar::after {
   display: block;
@@ -177,7 +178,8 @@ a {
   bottom: 12px;
   left: 12px;
   border-top: solid 2px #dcff64;
-  animation: cmn-spinner--animation__radar 1.75s infinite linear;
+  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
+  animation: cmn-spinner--animation__radar 2s  linear;
 }
 .cmn-spinner__radar::after {
   top: 26px;
@@ -185,7 +187,9 @@ a {
   bottom: 26px;
   left: 26px;
   border-top: solid 2px #fff;
-  animation: cmn-spinner--animation__radar 2s infinite linear;
+  -webkit-animation: cssAnimation 1s ease-in 2s forwards;
+  animation: cmn-spinner--animation__radar 2s linear;
+
 }
 
 /* animation keyframes */
@@ -196,6 +200,29 @@ a {
   to {
     transform: rotate(360deg);
   }
+}
+/*.cmn-spinner__radar::before, .cmn-spinner__radar::after, .cmn-spinner__radar {
+    -moz-animation: cssAnimation 1s ease-in 3s forwards;
+    -webkit-animation: cssAnimation 1s ease-in 3s forwards;
+    -o-animation: cssAnimation 0s ease-in 3s forwards;
+    animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    
+}*/
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
 
 /*  ////////////////////////Blog Page////////////////////////////////*/
