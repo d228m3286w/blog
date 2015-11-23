@@ -12,8 +12,9 @@ var CommentForm = React.createClass({
             data: data,
             type: 'POST',
                 success:function(response){
-                	console.log("Posting comments", response)
-                	document.location="/blog.html"
+                  if(this.props.onPost){
+                    this.props.onPost()
+                  }
                 }.bind(this),
                 error: function(xhr,status, err){
                     console.log("NOT POSTING DATA")
@@ -21,6 +22,7 @@ var CommentForm = React.createClass({
                     console.error(this.props.url, status, err.toString());
                 }.bind(this)
         })
+      React.findDOMNode(this.refs.body).value = "Thank You for your Comment"
     },
 
 render: function() {

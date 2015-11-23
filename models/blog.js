@@ -2,7 +2,7 @@
 var mongoose     = require('mongoose');
 // var Schema       = mongoose.Schema;
 
-var BlogSchema   = new mongoose.Schema({
+var blogSchema   = new mongoose.Schema({
    title: String,
    body: String,
    author: String,
@@ -13,4 +13,4 @@ var BlogSchema   = new mongoose.Schema({
    
 });
 
-mongoose.model('Blog', BlogSchema);
+mongoose.model('Blog', blogSchema);

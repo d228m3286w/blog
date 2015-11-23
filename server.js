@@ -18,7 +18,9 @@ cookieParser = require('cookie-parser'),
 githubRoutes = require('./routes/github'),
 Twit         = require('twit'),
 commentModel = require('./models/comment'),
-prettydate   = require("pretty-date");
+prettydate   = require("pretty-date"),
+blogModel    = require('./models/blog');
+
 require('dotenv').load();
 
 
@@ -123,14 +125,3 @@ app.set('port', process.env.PORT || 4000);
 var server = app.listen(app.get('port'), function(){ 
   console.log('Express server listening on port ' + server.address().port)
 });
-
-
-
-
-
-
-
-
-
-
-

@@ -9,13 +9,15 @@ li {
 a {
   color: black;
 }
-
+em {
+  font-size: .7em;
+  color: teal;
+}
 .testImg {
 	margin-left: 5px;
   margin-top: 100px;
   margin-bottom: 50px;
 }
-
 
 .bg-img {
   margin-top: 50px;
@@ -287,7 +289,7 @@ a {
   text-shadow: 1px 1px green;
 }
 #peepsComments {
-  border: dashed 1px;
+  border-top: dashed 1px;
 }
 #commentButton {
   margin-top: 5px;
