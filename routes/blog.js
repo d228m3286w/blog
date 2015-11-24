@@ -105,7 +105,7 @@ router.route('/:id')
 router.route('/:id/comments')
     .get(function(req, res) {
         mongoose.model('Blog').findById({  _id: req.params.id })
-        .populate({ path:'comments', populate:{path:'user', select:'local.email local.username'}})
+        .populate({ path:'comments', populate:{path:'user', select:'local.email'}})
         .exec( function(err, blog) {
             if (err)
                 res.send(err);

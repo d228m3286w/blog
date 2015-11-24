@@ -1,6 +1,6 @@
 
 var mongoose     = require('mongoose');
-// var Schema       = mongoose.Schema;
+
 
 var blogSchema   = new mongoose.Schema({
    title: String,

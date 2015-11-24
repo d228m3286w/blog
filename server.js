@@ -19,10 +19,10 @@ githubRoutes = require('./routes/github'),
 Twit         = require('twit'),
 commentModel = require('./models/comment'),
 prettydate   = require("pretty-date"),
-blogModel    = require('./models/blog');
+blogModel    = require('./models/blog'),
+fetchWakaEvents = require('./routes/wakaRoutes');
 
 require('dotenv').load();
-
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
@@ -71,13 +71,29 @@ app.options("*", function(req, res) {
   res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 });
-
 var T = new Twit({
   consumer_key: process.env.CONSUMER_KEY, 
   consumer_secret: process.env.CONSUMER_SECRET,
   access_token: process.env.ACCESS_TOKEN,
   access_token_secret: process.env.ACCESS_SECRET
 });
+app.set('view engine', 'ejs');
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+require('./config/passport')(passport);
+require('./routes/userRoutes.js')(app, passport); // load routes & pass in app & fully configed passport
+
+
 
 var fetchTweets = function(req, res){
   var twitterHandle = req.params.twitterHandle;
@@ -93,31 +109,22 @@ var fetchTweets = function(req, res){
       res.send(data);
     });
 }
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded());
-app.use('/api/blog/', blogRoutes);
+
+
 app.use('/api/github', githubRoutes);
 app.use('/api/T/:twitterHandle', fetchTweets);
+app.use('/api/Waka', fetchWakaEvents);
 
-require('./config/passport')(passport); // pass passport for configuration
 
-// set up our express application
-app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
-app.use(bodyParser.json()); // get information from html forms
-app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs'); // set up ejs for templating
 
-// required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-app.use(flash()); // use connect-flash for flash messages stored in session
+
+
+
 
 // routes ======================================================================
-require('./routes/userRoutes.js')(app, passport); // load routes & pass in app & fully configed passport
 
+app.use('/api/blog/', blogRoutes);
 
 
 app.set('port', process.env.PORT || 4000);

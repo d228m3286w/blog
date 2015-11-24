@@ -1,7 +1,8 @@
 var React = require('react');
 var CommentForm = require('./blogComment');
 var prettydate = require("pretty-date");
-
+var md5 = require('md5');
+var GRAVATAR_URL = 'http://gravatar.com/avatar'
 var BlogList = React.createClass({
     render: function() {
     	var self = this; 
@@ -18,13 +19,20 @@ var BlogList = React.createClass({
                     var commentsDate = i.date;
                     var rawDate = i.date.substring(5, 10);
                     var newDate = prettydate.format(new Date(i.date))
+                        if(i.user){
+                    var user = i.user.local.email;
+                    var size = 15;
+                    var hash = md5(user);
+                    var pic = GRAVATAR_URL + "/" + hash + "?=" +size; 
+                } else { var user = "the dread pirate roberts"}
                     return (
                         <div>
-                            <p>{i.body}    <em>:  {newDate}  {rawDate}</em></p>
+                            <p><img id="grTar"src={pic}/>  {i.body}    <em>:  {newDate} / {rawDate}   by:  {user}</em></p>
                             
                         </div>
                     )
                 });
+
             };
 
     		return (
