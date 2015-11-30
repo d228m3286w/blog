@@ -1,48 +1,38 @@
+
 var React = require('react');
-var rd3 = require('react-d3');
+var Chart = require('chart.js');
+var WakaBox = require('./waka');  
+// var languages = require(WakaBox);
 
-​var BarChart = rd3.BarChart;
 
-var barData = [
-  {label: 'A', value: 5},
-  {label: 'B', value: 6},
-  {label: 'F', value: 7}
-];
 
 var App = React.createClass({
     render: function() {
+      var data = {
+    labels: ["JavaScript", "HTML", "CSS", "JSON"],
+    datasets: [
+      
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [20,4,5,8,57,3]
+        }
+    ]
+};
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myRadarChart = new Chart(ctx).Radar(data);
         return (
         <div>
           <h1>Hello</h1>
-          return <BarChart
-                  data={barData}
-                  width={500}
-                  height={200}
-                  fill={'#3182bd'}
-                  title='Bar Chart'
-                />;
           
         </div>
         );
     }
 });
-// module.exports = App;
 
-
-// var App = React.createClass({
-//     render: function() {
-//         return <BarChart
-//                   data={barData}
-//                   width={500}
-//                   height={200}
-//                   fill={'#3182bd'}
-//                   title='Bar Chart'
-//                 />;
-//     }
-// });
- 
-
-         
-// ​        
-
-//  module.exports = App;
+module.exports = App;

@@ -1,5 +1,5 @@
 var React = require('react');
-// var WakaGraph = require('./wakaGraph');
+// var App = require('./wakaGraph');
 
 var WakaBox = React.createClass({
 
@@ -60,6 +60,7 @@ componentDidMount: function() {
     			<div>
 					<p>{wakaData}</p>
                     
+                    
 				</div>
     		)
     	 
@@ -70,7 +71,7 @@ componentDidMount: function() {
 module.exports = WakaBox;
 
 // <li>Daily Average hours spents coding {dailyAverage}</li>
-
+// <App languages={this.langName} timeLang={this.timeLang} />
 
 
 
