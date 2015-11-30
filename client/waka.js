@@ -1,18 +1,5 @@
 var React = require('react');
-
-var WakaList = React.createClass({
-
-    render: function() {
-    	var wakadata = this.props.data.map(function(waka){
-    		return <li> {waka._id} </li>
-    	})
-        return (
-				<div>
-					{wakadata}
-				</div>
-        );
-    }
-});
+// var WakaGraph = require('./wakaGraph');
 
 var WakaBox = React.createClass({
 
@@ -22,10 +9,10 @@ var WakaBox = React.createClass({
 
 
 	loadWakasFromServer: function() {
-		urll = 
+		
 		
 		$.ajax({
-			url: urll,
+			url: "/api/Waka",
 			dataType: 'json',
 			cache:false,
 			success:function(data){
@@ -46,15 +33,44 @@ componentDidMount: function() {
 
 
     render: function() {
-        return (
-				<div>
-					<ul>
-						<WakaList data={this.state.data}/>
-						<p>Waka</p>
-					</ul>
+    	var wakaData = this.state.data.map(function(w){
+    		var dailyAverage = Math.ceil(w.daily /(60)/60);
+    
+    		var languages = w.languages.map(function(j){
+    			var langName = j.name;
+    			var timeLang = Math.ceil(j.total_seconds /(60)/60);	
+    		
+    			return (
+    				<div>
+    					<li>{langName} rounded to the nearest hour {timeLang}</li>
+    				
+    				</div>
+    				)
+    		});
+    		 return (
+    		 	<div>
+
+    				{languages}
+    			</div>
+    			)
+
+    		
+    	})
+    	return (
+    			<div>
+					<p>{wakaData}</p>
+                    
 				</div>
-        );
-    }
+    		)
+    	 
+
+}
 });
 
 module.exports = WakaBox;
+
+// <li>Daily Average hours spents coding {dailyAverage}</li>
+
+
+
+

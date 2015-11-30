@@ -1,30 +1,33 @@
-var fs       = require('fs'),
-mongoose     = require('mongoose'),
-db           = require('./models/db'),
-Blog         = require('./models/blog'),
-blogRoutes   = require('./routes/blog'),
-express      = require('express'),
-app          = express(),
-path         = require('path'),
-bodyParser   = require('body-parser'),
-router       = express.Router(),
-axios        = require('axios'),
-_            = require('lodash'),
-passport     = require('passport'),
-flash        = require('connect-flash'),
-session      = require('express-session'),
-morgan       = require('morgan'),
-cookieParser = require('cookie-parser'),
-githubRoutes = require('./routes/github'),
-Twit         = require('twit'),
-commentModel = require('./models/comment'),
-prettydate   = require("pretty-date"),
-blogModel    = require('./models/blog'),
-fetchWakaEvents = require('./routes/wakaRoutes');
-
 require('dotenv').load();
 
-if (process.env.NODE_ENV === 'production') {
+var fs          = require('fs'),
+mongoose        = require('mongoose'),
+db              = require('./models/db'),
+Blog            = require('./models/blog'),
+blogRoutes      = require('./routes/blog'),
+express         = require('express'),
+app             = express(),
+path            = require('path'),
+bodyParser      = require('body-parser'),
+router          = express.Router(),
+axios           = require('axios'),
+_               = require('lodash'),
+passport        = require('passport'),
+flash           = require('connect-flash'),
+session         = require('express-session'),
+morgan          = require('morgan'),
+cookieParser    = require('cookie-parser'),
+githubRoutes    = require('./routes/github'),
+Twit            = require('twit'),
+commentModel    = require('./models/comment'),
+prettydate      = require("pretty-date"),
+blogModel       = require('./models/blog'),
+fetchWakaEvents = require('./routes/wakaRoutes');
+// Chart           = require('chart.js');
+
+
+
+if(process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
 
   app.use('/static', express.static('static'));
@@ -114,6 +117,7 @@ var fetchTweets = function(req, res){
 app.use('/api/github', githubRoutes);
 app.use('/api/T/:twitterHandle', fetchTweets);
 app.use('/api/Waka', fetchWakaEvents);
+
 
 
 

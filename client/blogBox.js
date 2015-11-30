@@ -1,5 +1,5 @@
 var React = require('react');
-var BlogList = require('./blogList')
+var BlogList = require('./blogList');
 
 var BlogBox = React.createClass({
 
