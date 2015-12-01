@@ -1,7 +1,7 @@
 
 var React = require('react');
 var Chart = require('chart.js');
-var WakaBox = require('./waka');  
+// var WakaBox = require('./waka');  
 // var languages = require(WakaBox);
 
 
@@ -35,4 +35,4 @@ var App = React.createClass({
     }
 });
 
-module.exports = App;
+// module.exports = App;

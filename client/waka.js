@@ -1,4 +1,5 @@
 var React = require('react');
+var Chart = require('chart.js');
 // var App = require('./wakaGraph');
 
 var WakaBox = React.createClass({
@@ -35,14 +36,18 @@ componentDidMount: function() {
     render: function() {
     	var wakaData = this.state.data.map(function(w){
     		var dailyAverage = Math.ceil(w.daily /(60)/60);
-    
+            var allLangs = [];
+            var allTime = [];
     		var languages = w.languages.map(function(j){
     			var langName = j.name;
-    			var timeLang = Math.ceil(j.total_seconds /(60)/60);	
+                allLangs.push(langName);
+    			var timeLang = Math.ceil(j.total_seconds /(60)/60);
+                allTime.push(timeLang);
     		
     			return (
     				<div>
     					<li>{langName} rounded to the nearest hour {timeLang}</li>
+                        <App labels={allLangs} tData={allTime}/>
     				
     				</div>
     				)
@@ -57,15 +62,44 @@ componentDidMount: function() {
     		
     	})
     	return (
+           
     			<div>
-					<p>{wakaData}</p>
-                    
+					<p>{wakaData}</p>    
                     
 				</div>
     		)
     	 
 
 }
+})
+var App = React.createClass({
+    render: function() {
+        console.log(this.props.tData)
+      var data = {
+    labels: this.props.labels,
+    datasets: [
+      
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: this.props.tData
+        }
+    ]
+};
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myRadarChart = new Chart(ctx).Radar(data);
+        return (
+        <div>
+          
+          
+        </div>
+        );
+    }
 });
 
 module.exports = WakaBox;

@@ -38,6 +38,7 @@ if(process.env.NODE_ENV === 'production') {
   var webpack = require('webpack');
   var webpackConfig = require('./webpack.config.dev');
   var compiler = webpack(webpackConfig);
+  
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath
