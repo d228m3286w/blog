@@ -9,3 +9,8 @@ React.render(<Github/>, document.getElementById('github'));
 React.render(<TweetBox/>, document.getElementById('twit'));
 React.render(<WakaBox/>, document.getElementById('wakawaka'));
 // React.render(<App/>, document.getElementById('chart'));
+
+
+
+
+
