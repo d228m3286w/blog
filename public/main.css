@@ -3,9 +3,9 @@
 * { 
   cursor: url(http://cur.cursors-4u.net/mechanics/mec-1/mec63.cur), progress !important;
 } 
-/*li {
+li {
   list-style: none;
-}*/
+}
 a {
   color: black;
 }
@@ -72,13 +72,9 @@ em {
     to { transform: rotateX(360deg); }
 
 }
-
-
 #container{
 	height: 100%;
-
 }
-
 
 #footer {
   font-family: 'Chewy', cursive;
@@ -98,23 +94,24 @@ em {
   border: solid;
   box-shadow: inset 0 0 5px #191970;
   background-color: rgba(192,192,192, 0.6);
-  height: 450px;
+  padding: 10px;
+  /*height: 450px;*/
 
 }
 .waka {
   border: solid;
   box-shadow: inset 0 0 5px #191990;
   background-color: rgba(192,192,192, 0.6);
-  padding: 7px;
+  padding: 17px;
   margin-bottom: 20px;
   text-align: center;
-  height: 450px;
-}
+/*  height: 450px;
+*/}
 .education {
   border: solid;
   box-shadow: inset 0 0 5px #191990;
   background-color: rgba(192,192,192, 0.6);
-  height: 250px;
+  /*height: 250px;*/
   padding: 20px;
   margin-bottom: 50px;
 }
@@ -123,14 +120,14 @@ em {
   box-shadow: inset 0 0 5px #191990;
   background-color: rgba(192,192,192, 0.6);
   padding: 7px;
-  height: 500px;
+  /*height: 500px;*/
 }
 .intent {
   border: solid;
   box-shadow: inset 0 0 5px #191990;
   padding: 7px;
   background-color: rgba(192,192,192, 0.6); 
-  height: 500px;
+  /*height: 500px;*/
 }
 .middleOfPage {
   height: 300px;
@@ -420,21 +417,22 @@ em {
 }
 
 .scene {
-  width:500px;
-  height:500px;
+  width:20px;
+  height:20px;
   margin:2% auto;
   perspective: 1000px;
 }
 .wrapper {
-  width:100%;
-  height:100%;
+  width:400px;
+  height:400px;
   transform: rotateX(0deg) rotateY(360deg);
   transform-style: preserve-3d;
+  margin-top: 20px;
 }
 .ball {
   position: relative;
-  width: 70%;
-  height: 70%;
+  width: 50%;
+  height: 50%;
   margin:0 auto;
   transform-style:  preserve-3d;
   animation: roundandround 7.5s 1.5s infinite linear;
@@ -446,7 +444,7 @@ em {
   width: 100%;
   height: 100%;
   border:5px;
-  border-style: solid;
+  border-style: dashed;
   border-radius: 50%;
   opacity: 0;
   animation: show 0.75s forwards ease-in-out;
